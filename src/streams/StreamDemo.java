@@ -7,11 +7,10 @@ import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void show(){
-         //Streams from arbitary number of parameters
-        var count =   Stream.of(1, "2324", 2)
-                        .filter(v ->  ((Constable) v)
-                                .getClass().isPrimitive() )
-                        .count();
-        System.out.println(count);
+    var stream = Stream.generate(()->Math.random());
+    stream
+            .forEach((n)-> System.out.println(n));
+
+
     }
 }
