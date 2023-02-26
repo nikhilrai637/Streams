@@ -9,6 +9,7 @@ public class StreamDemo {
     public static void show(){
     var stream = Stream.generate(()->Math.random());
     stream
+            .limit(6)
             .forEach((n)-> System.out.println(n));
 
 
