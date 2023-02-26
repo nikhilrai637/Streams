@@ -1,5 +1,6 @@
 package streams;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void show(){
@@ -16,6 +17,10 @@ public class StreamDemo {
                   count++;
          }
         System.out.println(count);
+
+         //Declarative Functional Programming
+         var count2  = movieList.stream().filter(mv -> mv.getLikes() > 10).count();
+        System.out.println(count2);
     }
 
 }
