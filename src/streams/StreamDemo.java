@@ -7,11 +7,13 @@ import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void show(){
-     Stream.iterate(1,n -> n+1)
-                        .limit(10)
-                        .forEach(n -> System.out.println(n));
+      List<Movie> movieList = List.of(
+                             new Movie("a",10)
+                            ,new Movie("b",12)
+                            ,new Movie("c",13)
+                            ,new Movie("d",9));
 
-
-
+      movieList.stream().map(movie -> movie.getTitle())
+                        .forEach(s -> System.out.println(s));
     }
 }
