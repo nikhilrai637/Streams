@@ -15,12 +15,11 @@ public class StreamDemo {
                             ,new Movie("y",30)
                             ,new Movie("d",20));
 
-       movieList.stream()
-               .filter(m -> m.getLikes()>10)
-               .peek(m-> System.out.println("filtered : "+m.getTitle()))
-               .map(Movie::getTitle)
-               .peek(t -> System.out.println("Title : "+t))
-               .forEach(System.out::println);
+     var result =   movieList.stream()
+               .max(Comparator.comparing(Movie::getLikes))
+               .get();
+        System.out.println(result.getTitle());
+
 
     }
 }
