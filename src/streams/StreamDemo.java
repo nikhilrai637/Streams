@@ -16,9 +16,11 @@ public class StreamDemo {
                             ,new Movie("d",20));
 
        movieList.stream()
-                .map(Movie::getLikes)
-                .distinct()
-                .forEach(System.out::println);
+               .filter(m -> m.getLikes()>10)
+               .peek(m-> System.out.println("filtered : "+m.getTitle()))
+               .map(Movie::getTitle)
+               .peek(t -> System.out.println("Title : "+t))
+               .forEach(System.out::println);
 
     }
 }
