@@ -12,12 +12,14 @@ public class StreamDemo {
                             ,new Movie("b",10)
                             ,new Movie("c",12)
                             ,new Movie("d",29));
+        //1000 movies
+        //10 movies per page
+        //3rd page
+        // skip - skip(pagenum-1)*pagesize
+        // limit pagesize
 
         movieList.stream()
                  .skip(2)
                 .forEach(m -> System.out.println(m.getTitle()));
-
-
-
     }
 }
