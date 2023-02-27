@@ -10,8 +10,8 @@ public class StreamDemo {
     public static void show(){
        List<Movie>movieList = List.of(new Movie("a",9)
                             ,new Movie("b",10)
-                            ,new Movie("c",12)
-                            ,new Movie("d",29));
+                            ,new Movie("c",30)
+                            ,new Movie("d",20));
         //1000 movies
         //10 movies per page
         //3rd page
@@ -19,7 +19,11 @@ public class StreamDemo {
         // limit pagesize
 
         movieList.stream()
-                 .skip(2)
+                .takeWhile(m -> m.getLikes()<30)
+                .forEach(m -> System.out.println(m.getTitle()));
+
+        movieList.stream()
+                .dropWhile(m -> m.getLikes()<30)
                 .forEach(m -> System.out.println(m.getTitle()));
     }
 }
