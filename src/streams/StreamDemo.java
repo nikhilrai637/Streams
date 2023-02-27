@@ -17,7 +17,7 @@ public class StreamDemo {
 
      var result =   movieList.stream()
              .map(Movie::getLikes)
-             .reduce((a,b)->a +b);
+             .reduce(Integer::sum);
 
         System.out.println(result.orElse(0));
 
