@@ -13,10 +13,9 @@ public class StreamDemo {
                             ,new Movie("c",12)
                             ,new Movie("d",29));
 
-        Predicate<Movie> isPopular = movie -> movie.getLikes()>10;
-       movieList.stream()
-                .filter(isPopular)
-                .forEach(movie -> System.out.println(movie.getTitle()));
+        movieList.stream()
+                 .skip(2)
+                .forEach(m -> System.out.println(m.getTitle()));
 
 
 
