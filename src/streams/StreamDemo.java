@@ -7,13 +7,9 @@ import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void show(){
-      List<Movie> movieList = List.of(
-                             new Movie("a",10)
-                            ,new Movie("b",12)
-                            ,new Movie("c",13)
-                            ,new Movie("d",9));
+       var stream = Stream.of(List.of(1,2,3),List.of(4,5,6));
+       stream  .flatMap(list-> list.stream())
+               .forEach(n-> System.out.println(n));
 
-      movieList.stream().map(movie -> movie.getTitle())
-                        .forEach(s -> System.out.println(s));
     }
 }
