@@ -16,9 +16,13 @@ public class StreamDemo {
                             ,new Movie("d",20));
 
      var result =   movieList.stream()
-               .max(Comparator.comparing(Movie::getLikes))
-               .get();
-        System.out.println(result.getTitle());
+             .map(Movie::getLikes)
+             .reduce((a,b)->a +b);
+
+        System.out.println(result.orElse(0));
+
+
+
 
 
     }
