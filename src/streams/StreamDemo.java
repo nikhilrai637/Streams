@@ -19,7 +19,8 @@ public class StreamDemo {
                 , new Movie("d", 20));
 
         var result = movieList.stream()
-                        .collect(Collectors.summarizingInt(Movie::getLikes));
+                .map(Movie::getTitle)
+                        .collect(Collectors.joining(","));
 
 
         System.out.println(result);
