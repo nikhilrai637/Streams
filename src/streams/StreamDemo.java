@@ -13,8 +13,9 @@ public class StreamDemo {
                 , new Movie("d", 20, Genre.ACTION));
 
         var result = movieList.stream()
-                .collect(Collectors.groupingBy(Movie::getGenre));
-
+                .collect(
+                        Collectors.groupingBy(Movie::getGenre,Collectors.counting())
+                );
 
         System.out.println(result);
 
