@@ -12,14 +12,11 @@ public class StreamDemo {
                 , new Movie("y", 30, Genre.THRILLER)
                 , new Movie("d", 20, Genre.ACTION));
 
-        var result = movieList.stream()
-                .collect(
-                        Collectors.groupingBy(Movie::getGenre,
-                                Collectors.mapping(Movie::getTitle,Collectors.joining(",")))
-                );
+       var result =  movieList.stream()
+                        .collect(Collectors.partitioningBy(movie -> movie.getLikes()>10,
+                                Collectors.mapping(Movie::getTitle,
+                                        Collectors.joining(","))));
 
         System.out.println(result);
-
-
     }
 }
