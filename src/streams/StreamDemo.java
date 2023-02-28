@@ -1,26 +1,19 @@
 package streams;
 
-import java.io.Serializable;
-import java.lang.constant.Constable;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void show() {
-        List<Movie> movieList = List.of(new Movie("z", 9)
-                , new Movie("b", 10)
-                , new Movie("t", 10)
-                , new Movie("y", 30)
-                , new Movie("d", 20));
+        List<Movie> movieList = List.of(new Movie("z", 9, Genre.ACTION)
+                , new Movie("b", 10, Genre.COMEDY)
+                , new Movie("t", 10, Genre.COMEDY)
+                , new Movie("y", 30, Genre.THRILLER)
+                , new Movie("d", 20, Genre.ACTION));
 
         var result = movieList.stream()
-                .map(Movie::getTitle)
-                        .collect(Collectors.joining(","));
+                .collect(Collectors.groupingBy(Movie::getGenre));
 
 
         System.out.println(result);
