@@ -5,6 +5,7 @@ import java.lang.constant.Constable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,8 +19,7 @@ public class StreamDemo {
                 , new Movie("d", 20));
 
         var result = movieList.stream()
-
-                        .collect(Collectors.toMap(Movie::getTitle,Movie::getLikes));
+                        .collect(Collectors.toMap(Movie::getTitle, Function.identity()));
 
 
         System.out.println(result);
